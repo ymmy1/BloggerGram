@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Account
+{% endblock %}
+
+{% block main %}
+
+
+<h2>Settings</h2>
+{% if stage == 'get' %}
+{% elif stage == 'success' %}
+<div class="alert alert-success border text-center" role="alert">Nickname is changed!</div>
+{% elif stage == 'taken' %}
+<div class="alert alert-danger border text-center" role="alert">Nickname is taken!</div>
+{% endif %}
+<form action="/account" method="post">
+    <div class="form-group">
+        <input autocomplete="off" autofocus class="form-control" name="username" placeholder="{{ username }}" type="text" disabled>
+    </div>
+    <div class="form-group">
+        <input autocomplete="off" autofocus class="form-control" name="nickname" placeholder="Change Nickname" type="text" maxlength="10" required>
+    </div>
+    <button class="btn btn-primary" type="submit">Change/Save</button>
+</form>
+{% endblock %}

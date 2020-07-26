@@ -1,0 +1,400 @@
+/* scroll bar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(250,250,250,1);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b30000;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+
+
+
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+}
+
+nav .navbar-brand .red
+{
+    color: #b30000;
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+
+    min-height: 150%;
+}
+
+.apology
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+
+/* main css */
+
+body
+{
+    background: url("https://lh3.googleusercontent.com/pw/ACtC-3dSNx68W1wViXWA_b3_yupSjFEesXLpi99ghHGn1XU0-e2IWsFSHyhBFEJCzu0voiJQIdAl-h7g9_LZVPUGHzUqvLj_cktk1VrYTIArLhHAYNRP3tbGrrXqXSTgLfpnnN7ENHjvnTJMu89PD6d452RKiQ=w1250-h937-no?authuser=0") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+
+
+.main_container
+{
+
+    background-color: rgba(250,250,250, 0.9);
+    width: 1000px;
+    margin: auto;
+    padding-bottom: 1rem;
+
+}
+
+
+/* CSS for index.html */
+
+.profile_container
+{
+    max-width: 920px;
+    margin: auto;
+}
+
+.profile_header
+{
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap:wrap;
+}
+
+.profile_avatar
+{
+    margin:auto;
+    width: 200px;
+
+}
+
+.profile_description
+{
+    margin: auto;
+}
+
+.avatar
+{
+    border-radius:10%;
+    transform: scaleX(-1);
+    width: 100%;
+    height: 100%;
+
+}
+
+.links a
+{
+    font-size: 30px;
+    margin-right: 10px;
+    color:#b30000;
+}
+
+.profile_body_active, .profile_body_hover
+{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+
+
+.profile_body
+{
+    position: relative;
+
+}
+
+.profile_body_hover
+{
+    position: absolute;
+    top:0;
+    right:0;
+}
+
+.thumb, .thumb_hover
+{
+    margin: 2.5px auto;
+    width: 300px;
+    height: 300px;
+    background: red;
+    z-index:3;
+}
+
+.thumb
+{
+    z-index: 4;
+}
+.thumb_hover
+{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    cursor:pointer;
+    background: rgba(0,0,0,0.3);
+    color:white;
+    font-weight: bold;
+}
+.thumb_hover .fa-comment
+{
+    margin-left: 15px;
+}
+
+.thumb:hover
+{
+    z-index: 2;
+    cursor:pointer;
+}
+.thumb_hover:hover
+{
+    cursor:pointer;
+    z-index:5;
+}
+
+/* Images URL's */
+
+.thumb1, .picture_thumb1
+{
+    background: url("/static/ig/1.jpg") no-repeat center center;
+    background-size: 100%;
+}
+.thumb2, .picture_thumb2
+{
+    background: url("/static/ig/2.jpg") no-repeat center center;
+    background-size: 100%;
+}
+.thumb3, .picture_thumb3
+{
+    background: url("/static/ig/3.jpg") no-repeat center center;
+    background-size: 100%;
+}
+.thumb4, .picture_thumb4
+{
+    background: url("/static/ig/4.jpg") no-repeat center center;
+    background-size: auto 100%;
+}
+.thumb5, .picture_thumb5
+{
+    background: url("/static/ig/5.jpg") no-repeat center center;
+    background-size: auto 100%;
+}
+.thumb6, .picture_thumb6
+{
+    background: url("/static/ig/6.jpg") no-repeat center center;
+    background-size: auto 100%;
+}
+.thumb7, .picture_thumb7
+{
+    background: url("/static/ig/7.jpg") no-repeat center center;
+    background-size: 100%;
+}
+.thumb8, .picture_thumb8
+{
+    background: url("/static/ig/8.jpg") no-repeat center center;
+    background-size: auto 100%;
+}
+.thumb9, .picture_thumb9
+{
+    background: url("/static/ig/9.jpg") no-repeat center center;
+    background-size: 100%;
+}
+
+/* Modal style */
+
+.modal-dialog
+{
+    max-width:760px;
+    margin:auto;
+    height:auto;
+}
+
+.modal-content
+{
+    margin: auto;
+}
+.modal-body
+{
+    padding: 0;
+    display: flex;
+    background: rgba(250,250,250,1);
+}
+.modal-picture
+{
+    width:300px;
+    height: 375px;
+}
+
+.modal-picture_horizontal
+{
+    width: 750px;
+    height: 375px;
+}
+
+.activity
+{
+    width: 458px;
+    height: 375px;
+}
+
+.activity-header
+{
+    text-align: left;
+    background: rgba(255,255,255,1);
+    width: 100%;
+}
+
+.activity-header h6,
+.activity-header p,
+.activity-header span
+{
+    padding: 10px;
+}
+
+.activity-body
+{
+    text-align: left;
+}
+
+.activity-body .form-control
+{
+    width: 82%;
+    margin-left: 5px;
+}
+
+.activity-body .form-control_horizontal
+{
+    width: 71%;
+}
+
+.comments
+{
+    height: 168px;
+    overflow:scroll;
+}
+
+.comment
+{
+    padding-left: 10px;
+    width: 100%;
+}
+
+.table-id
+{
+    display:none;
+}
+
+.heart
+{
+    background: none;
+    border: none;
+    cursor:pointer;
+}
+
+.red-like
+{
+    color: #b30000;
+}
+
+@media only screen and (max-width: 1000px) {
+    .main_container
+    {
+        width: 100%;
+    }
+
+}
+
+
+@media only screen and (max-width: 991px) {
+    .thumb, .thumb_hover
+   {
+       width: 220px;
+       height: 220px;
+   }
+
+
+}
+@media only screen and (max-width: 767px) {
+   .thumb, .thumb_hover
+   {
+       width: 165px;
+       height: 165px;
+   }
+}
+
+@media only screen and (max-width: 657px) {
+  .comments
+  {
+      height: 142px;
+  }
+  .activity-body .form-control
+  {
+      width: 67%;
+  }
+}
+
+@media only screen and (max-width: 545px) {
+    .thumb, .thumb_hover
+   {
+       width: 150px;
+       height: 150px;
+   }
+}
+
+@media only screen and (max-width: 490px) {
+    .thumb, .thumb_hover
+   {
+       width: 125px;
+       height: 125px;
+   }
+}
+
+@media only screen and (max-width: 415px) {
+    .thumb, .thumb_hover
+   {
+       width: 110px;
+       height: 110px;
+   }
+}
+
+@media only screen and (max-width: 365px) {
+    .thumb, .thumb_hover
+   {
+       width: 95px;
+       height: 95px;
+   }
+}

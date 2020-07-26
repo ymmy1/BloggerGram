@@ -1,0 +1,457 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<div class="profile_container">
+    <div class="profile">
+    <div class="profile_header">
+        <div class="profile_avatar">
+            <img src="/static/ig/portfolio.jpg" alt="Profile Picture" class="avatar">
+        </div>
+        <div class="profile_description">
+            <h3 class="profile_name">Oleg Nosyrev</h3>
+            <p class="profile-paragraph">Hello there!<br>
+            Hey {{ nickname }}, please go ahead and comment/like some of my posts! :)</p>
+            Also checkout my social links:
+            <div class="links">
+                <a href="https://www.facebook.com/oleg.nosyrev"target="_blank" class="facebook"><i class="fab fa-facebook-square"></i></a>
+                <a href="https://www.instagram.com/lets.goanywhere/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/ymmy1" class="github" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/oleg-nosyrev/" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <span class="total_likes">Total <i class="fas fa-heart"></i>: {{ total_likes }}</span>
+    <span class="total_comments">Total <i class="fas fa-comment"></i>: {{ total_comments }}</span>
+    <hr>
+        <div class="profile_body">
+            <div class="profile_body_active">
+                <div class="thumb1 thumb"></div>
+                <div class="thumb2 thumb"></div>
+                <div class="thumb3 thumb"></div>
+                <div class="thumb4 thumb"></div>
+                <div class="thumb5 thumb"></div>
+                <div class="thumb6 thumb"></div>
+                <div class="thumb7 thumb"></div>
+                <div class="thumb8 thumb"></div>
+                <div class="thumb9 thumb"></div>
+            </div>
+            <div class="profile_body_hover">
+                <div class="thumb_hover" data-toggle="modal" data-target="#thumb1">
+                    <span> <i class="fas fa-heart"></i>: {{ comments_id[1]["likes"] }} <i class="fas fa-comment"></i>: {{ comments_id[1]["comments"] }}</span>
+                </div>
+                <div class="thumb_hover" data-toggle="modal" data-target="#thumb2">
+                    <span> <i class="fas fa-heart"></i>: {{ comments_id[2]["likes"] }} <i class="fas fa-comment"></i>: {{ comments_id[2]["comments"] }}</span>
+                </div>
+                <div class="thumb_hover" data-toggle="modal" data-target="#thumb3">
+                    <span> <i class="fas fa-heart"></i>: {{ comments_id[3]["likes"] }} <i class="fas fa-comment"></i>: {{ comments_id[3]["comments"] }}</span>
+                </div>
+                <div class="thumb_hover" data-toggle="modal" data-target="#thumb4">
+                    <span> <i class="fas fa-heart"></i>: {{ comments_id[4]["likes"] }} <i class="fas fa-comment"></i>: {{ comments_id[4]["comments"] }}</span>
+                </div>
+                <div class="thumb_hover" data-toggle="modal" data-target="#thumb5">
+                    <span> <i class="fas fa-heart"></i>: {{ comments_id[5]["likes"] }} <i class="fas fa-comment"></i>: {{ comments_id[5]["comments"] }}</span>
+                </div>
+                <div class="thumb_hover" data-toggle="modal" data-target="#thumb6">
+                    <span> <i class="fas fa-heart"></i>: {{ comments_id[6]["likes"] }} <i class="fas fa-comment"></i>: {{ comments_id[6]["comments"] }}</span>
+                </div>
+                <div class="thumb_hover" data-toggle="modal" data-target="#thumb7">
+                    <span> <i class="fas fa-heart"></i>: {{ comments_id[7]["likes"] }} <i class="fas fa-comment"></i>: {{ comments_id[7]["comments"] }}</span>
+                </div>
+                <div class="thumb_hover" data-toggle="modal" data-target="#thumb8">
+                    <span> <i class="fas fa-heart"></i>: {{ comments_id[8]["likes"] }} <i class="fas fa-comment"></i>: {{ comments_id[8]["comments"] }}</span>
+                </div>
+                <div class="thumb_hover" data-toggle="modal" data-target="#thumb9">
+                    <span> <i class="fas fa-heart"></i>: {{ comments_id[9]["likes"] }} <i class="fas fa-comment"></i>: {{ comments_id[9]["comments"] }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal thumb1 -->
+<div class="modal fade" id="thumb1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+          <div class="modal-picture picture_thumb1">
+
+          </div>
+          <div class="activity">
+              <div class="activity-header">
+                <h6>Oleg Nosyrev</h6>
+                <p> Picture of Great Budha, Japan!</p>
+                {% if thumb1_liked %}
+                    <span class="total_likes "><i class="fas fa-heart red-like"></i></button>: {{ comments_id[1]["likes"] }}</span>
+                    <span class="total_comments"><i class="fas fa-comment"></i>: {{ comments_id[1]["comments"] }}</span>
+                {% else %}
+                    <form action="/" method="post">
+                        <input class="table-id" autocomplete="off" autofocus class="form-control" name="id" placeholder="Type Comment" type="text" value="thumb1">
+                        <input class="table-id" autocomplete="off" autofocus class="form-control" name="like" type="text" value="liked">
+                        <span class="total_likes "><button class="heart" type="submit"><i class="far fa-heart"></i></button>: {{ comments_id[1]["likes"] }}</span>
+                        <span class="total_comments"><i class="fas fa-comment"></i>: {{ comments_id[1]["comments"] }}</span>
+                    </form>
+                {% endif %}
+                <hr>
+              </div>
+              <div class="activity-body">
+                  <div class="comments">
+                    {% for row in thumb1 %}
+                        <span class="comment"><strong>{{ row["nickname"] }}: </strong><span>{{ row["comment"] }}<span></span><br>
+                    {% endfor %}
+                  </div>
+                <form action="/" method="post">
+                    <input class="table-id" autocomplete="off" autofocus class="form-control" name="id" placeholder="Type Comment" type="text" value="thumb1">
+                    <input autocomplete="off" autofocus class="form-control" name="comment" placeholder="Type Comment" type="text">
+                    <button class="btn btn-primary" type="submit">Send</button>
+                </form>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal thumb2 -->
+<div class="modal fade" id="thumb2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+          <div class="modal-picture picture_thumb2">
+
+          </div>
+          <div class="activity">
+              <div class="activity-header">
+                <h6>Oleg Nosyrev</h6>
+                <p> The North! Hokkaido, Japan</p>
+                {% if thumb2_liked %}
+                    <span class="total_likes "><i class="fas fa-heart red-like"></i></button>: {{ comments_id[2]["likes"] }}</span>
+                    <span class="total_comments"><i class="fas fa-comment"></i>: {{ comments_id[2]["comments"] }}</span>
+                {% else %}
+                    <form action="/" method="post">
+                        <input class="table-id" autocomplete="off" autofocus class="form-control" name="id" placeholder="Type Comment" type="text" value="thumb2">
+                        <input class="table-id" autocomplete="off" autofocus class="form-control" name="like" type="text" value="liked">
+                        <span class="total_likes "><button class="heart" type="submit"><i class="far fa-heart"></i></button>: {{ comments_id[2]["likes"] }}</span>
+                        <span class="total_comments"><i class="fas fa-comment"></i>: {{ comments_id[2]["comments"] }}</span>
+                    </form>
+                {% endif %}
+                <hr>
+              </div>
+              <div class="activity-body">
+                  <div class="comments">
+                    {% for row in thumb2 %}
+                        <span class="comment"><strong>{{ row["nickname"] }}: </strong><span>{{ row["comment"] }}<span></span><br>
+                    {% endfor %}
+                  </div>
+                <form action="/" method="post">
+                    <input class="table-id" autocomplete="off" autofocus class="form-control" name="id" placeholder="Type Comment" type="text" value="thumb2">
+                    <input autocomplete="off" autofocus class="form-control" name="comment" placeholder="Type Comment" type="text">
+                    <button class="btn btn-primary" type="submit">Send</button>
+                </form>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal thumb3 -->
+<div class="modal fade" id="thumb3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+          <div class="modal-picture picture_thumb3">
+
+          </div>
+          <div class="activity">
+              <div class="activity-header">
+                <h6>Oleg Nosyrev</h6>
+                <p> Fuji-san 🏞</p>
+                {% if thumb3_liked %}
+                    <span class="total_likes "><i class="fas fa-heart red-like"></i></button>: {{ comments_id[3]["likes"] }}</span>
+                    <span class="total_comments"><i class="fas fa-comment"></i>: {{ comments_id[3]["comments"] }}</span>
+                {% else %}
+                    <form action="/" method="post">
+                        <input class="table-id" autocomplete="off" autofocus class="form-control" name="id" placeholder="Type Comment" type="text" value="thumb3">
+                        <input class="table-id" autocomplete="off" autofocus class="form-control" name="like" type="text" value="liked">
+                        <span class="total_likes "><button class="heart" type="submit"><i class="far fa-heart"></i></button>: {{ comments_id[3]["likes"] }}</span>
+                        <span class="total_comments"><i class="fas fa-comment"></i>: {{ comments_id[3]["comments"] }}</span>
+                    </form>
+                {% endif %}
+                <hr>
+              </div>
+              <div class="activity-body">
+                  <div class="comments">
+                    {% for row in thumb3 %}
+                        <span class="comment"><strong>{{ row["nickname"] }}: </strong><span>{{ row["comment"] }}<span></span><br>
+                    {% endfor %}
+                  </div>
+                <form action="/" method="post">
+                    <input class="table-id" autocomplete="off" autofocus class="form-control" name="id" placeholder="Type Comment" type="text" value="thumb3">
+                    <input autocomplete="off" autofocus class="form-control" name="comment" placeholder="Type Comment" type="text">
+                    <button class="btn btn-primary" type="submit">Send</button>
+                </form>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal thumb4 -->
+<div class="modal fade" id="thumb4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+          <div class="modal-picture_horizontal picture_thumb4">
+
+          </div>
+          <div class="activity">
+              <div class="activity-header">
+                <h6>Oleg Nosyrev</h6>
+                <p> 8:00 am in Nara🤩</p>
+                {% if thumb4_liked %}
+                    <span class="total_likes "><i class="fas fa-heart red-like"></i></button>: {{ comments_id[4]["likes"] }}</span>
+                    <span class="total_comments"><i class="fas fa-comment"></i>: {{ comments_id[4]["comments"] }}</span>
+                {% else %}
+                    <form action="/" method="post">
+                        <input class="table-id" autocomplete="off" autofocus class="form-control" name="id" placeholder="Type Comment" type="text" value="thumb4">
+                        <input class="table-id" autocomplete="off" autofocus class="form-control" name="like" type="text" value="liked">
+                        <span class="total_likes "><button class="heart" type="submit"><i class="far fa-heart"></i></button>: {{ comments_id[4]["likes"] }}</span>
+                        <span class="total_comments"><i class="fas fa-comment"></i>: {{ comments_id[4]["comments"] }}</span>
+                    </form>
+                {% endif %}
+                <hr>
+              </div>
+              <div class="activity-body">
+                  <div class="comments">
+                    {% for row in thumb4 %}
+                        <span class="comment"><strong>{{ row["nickname"] }}: </strong><span>{{ row["comment"] }}<span></span><br>
+                    {% endfor %}
+                  </div>
+                <form action="/" method="post">
+                    <input class="table-id" autocomplete="off" autofocus class="form-control form-control_horizontal" name="id" placeholder="Type Comment" type="text" value="thumb4">
+                    <input autocomplete="off" autofocus class="form-control form-control_horizontal" name="comment" placeholder="Type Comment" type="text">
+                    <button class="btn btn-primary" type="submit">Send</button>
+                </form>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal thumb5 -->
+<div class="modal fade" id="thumb5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+          <div class="modal-picture_horizontal picture_thumb5">
+
+          </div>
+          <div class="activity">
+              <div class="activity-header">
+                <h6>Oleg Nosyrev</h6>
+                <p> Suwa lake!🌠</p>
+                {% if thumb5_liked %}
+                    <span class="total_likes "><i class="fas fa-heart red-like"></i></button>: {{ comments_id[5]["likes"] }}</span>
+                    <span class="total_comments"><i class="fas fa-comment"></i>: {{ comments_id[5]["comments"] }}</span>
+                {% else %}
+                    <form action="/" method="post">
+                        <input class="table-id" autocomplete="off" autofocus class="form-control" name="id" placeholder="Type Comment" type="text" value="thumb5">
+                        <input class="table-id" autocomplete="off" autofocus class="form-control" name="like" type="text" value="liked">
+                        <span class="total_likes "><button class="heart" type="submit"><i class="far fa-heart"></i></button>: {{ comments_id[5]["likes"] }}</span>
+                        <span class="total_comments"><i class="fas fa-comment"></i>: {{ comments_id[5]["comments"] }}</span>
+                    </form>
+                {% endif %}
+                <hr>
+              </div>
+              <div class="activity-body">
+                  <div class="comments">
+                    {% for row in thumb5 %}
+                        <span class="comment"><strong>{{ row["nickname"] }}: </strong><span>{{ row["comment"] }}<span></span><br>
+                    {% endfor %}
+                  </div>
+                <form action="/" method="post">
+                    <input class="table-id" autocomplete="off" autofocus class="form-control form-control_horizontal" name="id" placeholder="Type Comment" type="text" value="thumb5">
+                    <input autocomplete="off" autofocus class="form-control form-control_horizontal" name="comment" placeholder="Type Comment" type="text">
+                    <button class="btn btn-primary" type="submit">Send</button>
+                </form>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal thumb6 -->
+<div class="modal fade" id="thumb6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+          <div class="modal-picture_horizontal picture_thumb6">
+
+          </div>
+          <div class="activity">
+              <div class="activity-header">
+                <h6>Oleg Nosyrev</h6>
+                <p> Top of the Mount Katsuragi⛅</p>
+                {% if thumb6_liked %}
+                    <span class="total_likes "><i class="fas fa-heart red-like"></i></button>: {{ comments_id[6]["likes"] }}</span>
+                    <span class="total_comments"><i class="fas fa-comment"></i>: {{ comments_id[6]["comments"] }}</span>
+                {% else %}
+                    <form action="/" method="post">
+                        <input class="table-id" autocomplete="off" autofocus class="form-control" name="id" placeholder="Type Comment" type="text" value="thumb6">
+                        <input class="table-id" autocomplete="off" autofocus class="form-control" name="like" type="text" value="liked">
+                        <span class="total_likes "><button class="heart" type="submit"><i class="far fa-heart"></i></button>: {{ comments_id[6]["likes"] }}</span>
+                        <span class="total_comments"><i class="fas fa-comment"></i>: {{ comments_id[6]["comments"] }}</span>
+                    </form>
+                {% endif %}
+                <hr>
+              </div>
+              <div class="activity-body">
+                  <div class="comments">
+                    {% for row in thumb6 %}
+                        <span class="comment"><strong>{{ row["nickname"] }}: </strong><span>{{ row["comment"] }}<span></span><br>
+                    {% endfor %}
+                  </div>
+                <form action="/" method="post">
+                    <input class="table-id" autocomplete="off" autofocus class="form-control form-control_horizontal" name="id" placeholder="Type Comment" type="text" value="thumb6">
+                    <input autocomplete="off" autofocus class="form-control form-control_horizontal" name="comment" placeholder="Type Comment" type="text">
+                    <button class="btn btn-primary" type="submit">Send</button>
+                </form>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal thumb7 -->
+<div class="modal fade" id="thumb7" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+          <div class="modal-picture picture_thumb7">
+
+          </div>
+          <div class="activity">
+              <div class="activity-header">
+                <h6>Oleg Nosyrev</h6>
+                <p> Akihabara, electric town, Japan🕹</p>
+                {% if thumb7_liked %}
+                    <span class="total_likes "><i class="fas fa-heart red-like"></i></button>: {{ comments_id[7]["likes"] }}</span>
+                    <span class="total_comments"><i class="fas fa-comment"></i>: {{ comments_id[7]["comments"] }}</span>
+                {% else %}
+                    <form action="/" method="post">
+                        <input class="table-id" autocomplete="off" autofocus class="form-control" name="id" placeholder="Type Comment" type="text" value="thumb7">
+                        <input class="table-id" autocomplete="off" autofocus class="form-control" name="like" type="text" value="liked">
+                        <span class="total_likes "><button class="heart" type="submit"><i class="far fa-heart"></i></button>: {{ comments_id[7]["likes"] }}</span>
+                        <span class="total_comments"><i class="fas fa-comment"></i>: {{ comments_id[7]["comments"] }}</span>
+                    </form>
+                {% endif %}
+                <hr>
+              </div>
+              <div class="activity-body">
+                  <div class="comments">
+                    {% for row in thumb7 %}
+                        <span class="comment"><strong>{{ row["nickname"] }}: </strong><span>{{ row["comment"] }}<span></span><br>
+                    {% endfor %}
+                  </div>
+                <form action="/" method="post">
+                    <input class="table-id" autocomplete="off" autofocus class="form-control" name="id" placeholder="Type Comment" type="text" value="thumb7">
+                    <input autocomplete="off" autofocus class="form-control" name="comment" placeholder="Type Comment" type="text">
+                    <button class="btn btn-primary" type="submit">Send</button>
+                </form>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal thumb8 -->
+<div class="modal fade" id="thumb8" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+          <div class="modal-picture_horizontal picture_thumb8">
+
+          </div>
+          <div class="activity">
+              <div class="activity-header">
+                <h6>Oleg Nosyrev</h6>
+                <p> Mount Yamato Katsuragi🏔</p>
+                {% if thumb8_liked %}
+                    <span class="total_likes "><i class="fas fa-heart red-like"></i></button>: {{ comments_id[8]["likes"] }}</span>
+                    <span class="total_comments"><i class="fas fa-comment"></i>: {{ comments_id[8]["comments"] }}</span>
+                {% else %}
+                    <form action="/" method="post">
+                        <input class="table-id" autocomplete="off" autofocus class="form-control" name="id" placeholder="Type Comment" type="text" value="thumb8">
+                        <input class="table-id" autocomplete="off" autofocus class="form-control" name="like" type="text" value="liked">
+                        <span class="total_likes "><button class="heart" type="submit"><i class="far fa-heart"></i></button>: {{ comments_id[8]["likes"] }}</span>
+                        <span class="total_comments"><i class="fas fa-comment"></i>: {{ comments_id[8]["comments"] }}</span>
+                    </form>
+                {% endif %}
+                <hr>
+              </div>
+              <div class="activity-body">
+                  <div class="comments">
+                    {% for row in thumb8 %}
+                        <span class="comment"><strong>{{ row["nickname"] }}: </strong><span>{{ row["comment"] }}<span></span><br>
+                    {% endfor %}
+                  </div>
+                <form action="/" method="post">
+                    <input class="table-id" autocomplete="off" autofocus class="form-control form-control_horizontal" name="id" placeholder="Type Comment" type="text" value="thumb8">
+                    <input autocomplete="off" autofocus class="form-control form-control_horizontal" name="comment" placeholder="Type Comment" type="text">
+                    <button class="btn btn-primary" type="submit">Send</button>
+                </form>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal thumb9 -->
+<div class="modal fade" id="thumb9" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+          <div class="modal-picture picture_thumb9">
+
+          </div>
+          <div class="activity">
+              <div class="activity-header">
+                <h6>Oleg Nosyrev</h6>
+                <p> Small Temple inside Bamboo Forest, Kyoto 🏯</p>
+                {% if thumb9_liked %}
+                    <span class="total_likes "><i class="fas fa-heart red-like"></i></button>: {{ comments_id[9]["likes"] }}</span>
+                    <span class="total_comments"><i class="fas fa-comment"></i>: {{ comments_id[9]["comments"] }}</span>
+                {% else %}
+                    <form action="/" method="post">
+                        <input class="table-id" autocomplete="off" autofocus class="form-control" name="id" placeholder="Type Comment" type="text" value="thumb9">
+                        <input class="table-id" autocomplete="off" autofocus class="form-control" name="like" type="text" value="liked">
+                        <span class="total_likes "><button class="heart" type="submit"><i class="far fa-heart"></i></button>: {{ comments_id[9]["likes"] }}</span>
+                        <span class="total_comments"><i class="fas fa-comment"></i>: {{ comments_id[9]["comments"] }}</span>
+                    </form>
+                {% endif %}
+                <hr>
+              </div>
+              <div class="activity-body">
+                  <div class="comments">
+                    {% for row in thumb9 %}
+                        <span class="comment"><strong>{{ row["nickname"] }}: </strong><span>{{ row["comment"] }}<span></span><br>
+                    {% endfor %}
+                  </div>
+                <form action="/" method="post">
+                    <input class="table-id" autocomplete="off" autofocus class="form-control" name="id" placeholder="Type Comment" type="text" value="thumb9">
+                    <input autocomplete="off" autofocus class="form-control" name="comment" placeholder="Type Comment" type="text">
+                    <button class="btn btn-primary" type="submit">Send</button>
+                </form>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End of modals -->
+{% endblock %}
