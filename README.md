@@ -1,4 +1,4 @@
- # <img src="https://i.imgur.com/vGs3SsW.png" alt="drawing" width="40px"/> FlackyChat
+ # <img src="https://i.imgur.com/vGs3SsW.png" alt="drawing" width="40px"/> BloggerGram
 ![](https://i.imgur.com/HnYJt0T.png)
 
 This project is a mini version of Instagram. The main idea is to let people register, login and view and interact with the page of the blogger.
